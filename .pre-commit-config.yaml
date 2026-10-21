@@ -1,0 +1,24 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=500"]
+      - id: check-yaml
+      - id: check-toml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: detect-private-key
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.8
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+      - id: ruff-format
+  - repo: local
+    hooks:
+      - id: forbid-image-files
+        name: forbid image and DICOM files
+        entry: Image or DICOM files must not be committed. Data lives outside the repository.
+        language: fail
+        files: '\.(png|jpe?g|dcm|dicom|nii(\.gz)?|npy|npz|pt|pth|onnx|ckpt)$'

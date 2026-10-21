@@ -1,0 +1,43 @@
+# Data and model artefacts never enter the repository.
+data/images/
+data/raw/
+*.png
+*.jpg
+*.jpeg
+*.dcm
+*.dicom
+*.nii
+*.nii.gz
+*.npy
+*.npz
+*.pt
+*.pth
+*.onnx
+*.ckpt
+weights/
+.env
+
+# Allow tracked label and manifest files.
+!data/manifests/**
+!data/labels/**
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+dist/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Notebooks: keep source, not outputs or checkpoints.
+.ipynb_checkpoints/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
